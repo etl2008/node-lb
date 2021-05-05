@@ -29,7 +29,7 @@ npm run start --backends=http://localhost:8081,http://localhost:8082,http://loca
 # Test
 ```bash
 cd src/
-npm run start --backends=http://localhost:8081,http://localhost:8082,http://localhost:8083,http://localhost:8084 --port=3000
+node src/index.js --backends=http://localhost:8081,http://localhost:8082,http://localhost:8083,http://localhost:8084 --port=3000
 cd ./test-node-client
 docker-compose up -d
 
