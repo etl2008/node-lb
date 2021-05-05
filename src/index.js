@@ -15,7 +15,7 @@ app.use(require("api-express-exporter")());
 // Configuration
 let PORT = 3000;
 const HOST = "localhost";
-let servers = ['localhost:8081', 'localhost:8082', 'localhost:8083', 'localhost:8084'];
+let servers = ['http://localhost:8081', 'http://localhost:8082', 'http://localhost:8083', 'http://localhost:8084'];
 const next = roundround(servers);
 // Args
 var argv = require('minimist')(process.argv.slice(2));
@@ -29,7 +29,7 @@ if(!!argv.port){
 }
 
 const customRouter = function (req) {
-	return `http://${next()}`;
+	return `${next()}`;
 };
 
 var proxy = httpProxy.createProxyServer({});
@@ -88,7 +88,7 @@ if (cluster.isPrimary) {
     app.post('/register', (req, res) => {
 		for (i in servers){
 			proxy.web(req, res, {
-				target: `http://${servers[i]}`
+				target: `${servers[i]}`
 			  });
 		}
     });
@@ -96,13 +96,13 @@ if (cluster.isPrimary) {
 	app.post('/changePassword', (req, res) => {
         for (i in servers){
 			proxy.web(req, res, {
-				target: `http://${servers[i]}`
+				target: `${servers[i]}`
 			  });
 		}
     });
 
 	app.get('/login',createProxyMiddleware({
-        target: `http://${next()}`,
+        target: `${next()}`,
 		router: customRouter,
         changeOrigin: true
     }));

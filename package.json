@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "debug": "node src/index.js --backends=http://localhost:8081,http://localhost:8082,http://localhost:8083,http://localhost:8084 --port=3000"
   },
   "author": "",
   "license": "ISC",
