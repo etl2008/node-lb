@@ -24,7 +24,7 @@ To add followings as load balanced backends
 - http://localhost:8083
 - http://localhost:8084
 ```bash
-npm run start --backends=http://localhost:8081,http://localhost:8082,http://localhost:8083,http://localhost:8084 --port=3000
+node src/index.js --backends=http://localhost:8081,http://localhost:8082,http://localhost:8083,http://localhost:8084 --port=3000
 ```
 # Test
 ```bash
