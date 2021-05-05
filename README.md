@@ -11,9 +11,9 @@ End upstream broadcast for post requests
 ```bash
 Usage:
   --backends string
-        Load balanced backends, use commas to separate
+        Load balanced backends, use commas to separate (default http://localhost:8081,http://localhost:8082,http://localhost:8083,http://localhost:8084)
   --port int
-        Port to serve (default 3030)
+        Port to serve (default 3000)
 ```
 
 Example:
